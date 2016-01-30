@@ -4,12 +4,21 @@
 <head>
   <title>My first VR site</title>
   <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+
+  <script>
+    document.querySelector('#cube').addEventListener('click', function() {
+      this.setAttribute('material', 'color', 'red');
+      console.log('I was clicked!');
+    });
+  </script>
 </head>
 
 <body>
   <a-scene>
-    <a-light type="ambient"></a-light>
-    <a-cube></a-cube>
+    <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500" position="0 0 -5" geometry="primitive: ring" material="color: white; shader: flat">
+    </a-entity>
+
+    <a-entity id="cube" geometry="primitive: box" material="color: blue"></a-entity>
 
   </a-scene>
 </body>
